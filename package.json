@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "axios": "^1.14.0",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "concurrently": "^9.2.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-router-dom": "^7.14.0"
+  },
+  "name": "de-highway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PayalPatel03/de-highway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PayalPatel03/de-highway/issues"
+  },
+  "homepage": "https://github.com/PayalPatel03/de-highway#readme"
+}
