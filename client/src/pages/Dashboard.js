@@ -1,4 +1,5 @@
 import React from "react";
+import monitoringImage from "../assets/High-tech traffic control room.png";
 
 function Dashboard() {
   return (
@@ -44,17 +45,27 @@ function Dashboard() {
 
       <div className="card mt-4 p-4 shadow">
         <h5>Live Highway Monitoring</h5>
+         <img 
+    src={monitoringImage}
+    alt="Highway Monitoring"
+    style={{
+      width: "100%",
+      height: "300px",
+      objectFit: "cover",
+      borderRadius: "10px"
+    }}
+  />
 
         <div
           style={{
-            height: "300px",
+            // height: "300px",
             background: "#ddd",
             display: "flex",
             alignItems: "center",
             justifyContent: "center"
           }}
         >
-          Live Camera Feed
+        
         </div>
       </div>
 
