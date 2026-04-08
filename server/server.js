@@ -6,6 +6,8 @@ const connectDB = require("./config/db");
 
 const userRoutes = require("./routes/userRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
+const cameraRoutes = require("./routes/cameraRoutes");
+const stolenRoutes = require("./routes/stolenRoutes");
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/vehicles", vehicleRoutes);
+app.use("/api/cameras", cameraRoutes);
+app.use("/api/stolen", stolenRoutes);
 
 app.get("/", (req, res) => {
     res.send("Highway AI Server Running");

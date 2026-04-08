@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
 
-const stolenSchema = new mongoose.Schema({
+const stolenVehicleSchema = new mongoose.Schema({
+    number: String,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
 
-    vehicleNumber: String,
-    ownerName: String,
-    theftDate: String,
-    location: String,
-    status: String
-
-}, { timestamps: true });
-
-module.exports = mongoose.model("StolenVehicle", stolenSchema);
+module.exports = mongoose.model("StolenVehicle", stolenVehicleSchema);

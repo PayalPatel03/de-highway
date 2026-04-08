@@ -48,7 +48,7 @@ function Sidebar() {
         <li className="mb-3">
           <Link to="/memo" className="text-white text-decoration-none">
             <i className="fa fa-file me-2"></i>
-            Memo/Challan
+            Memo
           </Link>
         </li>
 

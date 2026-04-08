@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
 const cameraSchema = new mongoose.Schema({
-
-    cameraId: String,
+    name: String,
     location: String,
-    status: String
-
-}, { timestamps: true });
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
 
 module.exports = mongoose.model("Camera", cameraSchema);
