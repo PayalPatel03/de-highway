@@ -2,31 +2,30 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-function Login() {
+function Register() {
 
   const navigate = useNavigate();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
 
     try {
 
-      const res = await axios.post(
-        "http://localhost:5000/api/users/login",
-        { email, password }
+      await axios.post(
+        "http://localhost:5000/api/users/register",
+        { name, email, password }
       );
 
-      localStorage.setItem("user", JSON.stringify(res.data));
+      alert("Registered Successfully");
 
-      alert("Login Successful ");
-
-      navigate("/dashboard");
+      navigate("/");
 
     } catch (error) {
 
-      alert("Invalid Credentials ");
+      alert("Error registering ");
     }
   };
 
@@ -34,7 +33,7 @@ function Login() {
     <div
       style={{
         height: "100vh",
-        background: "linear-gradient(to right, #1e3c72, #2a5298)",
+        background: "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
@@ -44,8 +43,16 @@ function Login() {
       <div className="card p-4 shadow" style={{ width: "350px", borderRadius: "15px" }}>
 
         <h3 className="text-center mb-3">
-           Highway AI Login
+           Register
         </h3>
+
+        <input
+          type="text"
+          placeholder="Name"
+          className="form-control mb-3"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <input
           type="email"
@@ -64,14 +71,14 @@ function Login() {
         />
 
         <button
-          className="btn btn-primary w-100"
-          onClick={handleLogin}
+          className="btn btn-success w-100"
+          onClick={handleRegister}
         >
-          Login
+          Register
         </button>
 
         <p className="text-center mt-3">
-          Don't have an account? <Link to="/register">Register</Link>
+          Already have an account? <Link to="/">Login</Link>
         </p>
 
       </div>
@@ -80,4 +87,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

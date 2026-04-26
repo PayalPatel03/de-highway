@@ -8,34 +8,48 @@ function Cameras() {
 
       <div className="row mt-4">
 
+        {/* Camera 1 */}
         <div className="col-md-6">
           <div className="card p-3 shadow">
 
             <h5>Camera 1 - Highway Entry</h5>
 
-            <div
+            <img
+              src="https://www.shutterstock.com/image-photo/traffic-gurgaon-faridabad-toll-plaza-600w-2356494459.jpg"
+              alt="Highway Entry"
               style={{
+                width: "100%",
                 height: "250px",
-                background: "#ccc",
+                objectFit: "cover",
+                borderRadius: "10px",
                 marginTop: "10px"
               }}
-            ></div>
+            />
+
+           
 
           </div>
         </div>
 
+        {/* Camera 2 */}
         <div className="col-md-6">
           <div className="card p-3 shadow">
 
             <h5>Camera 2 - Toll Gate</h5>
 
-            <div
+            <iframe
+              width="100%"
+              height="250"
+              src=""
+              title="Live Camera"
               style={{
-                height: "250px",
-                background: "#ccc",
+                borderRadius: "10px",
                 marginTop: "10px"
               }}
-            ></div>
+              allowFullScreen
+            ></iframe>
+
+           
 
           </div>
         </div>

@@ -1,11 +1,35 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import monitoringImage from "../assets/High-tech traffic control room.png";
 
 function Dashboard() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+
+    // Remove user data
+    localStorage.removeItem("user");
+
+    // Redirect to login
+    navigate("/");
+  };
+  
+
   return (
     <div>
 
-      <h2 className="mb-4">Dashboard</h2>
+      {/* Top Bar */}
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2>Dashboard</h2>
+
+        <button
+          className="btn btn-danger"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
 
       <div className="row">
 
@@ -45,28 +69,17 @@ function Dashboard() {
 
       <div className="card mt-4 p-4 shadow">
         <h5>Live Highway Monitoring</h5>
-         <img 
-    src={monitoringImage}
-    alt="Highway Monitoring"
-    style={{
-      width: "100%",
-      height: "300px",
-      objectFit: "cover",
-      borderRadius: "10px"
-    }}
-  />
 
-        <div
+        <img 
+          src={monitoringImage}
+          alt="Highway Monitoring"
           style={{
-            // height: "300px",
-            background: "#ddd",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
+            width: "100%",
+            height: "300px",
+            objectFit: "cover",
+            borderRadius: "10px"
           }}
-        >
-        
-        </div>
+        />
       </div>
 
     </div>

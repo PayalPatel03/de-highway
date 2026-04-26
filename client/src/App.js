@@ -11,6 +11,7 @@ import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 
 import MainLayout from "./layout/MainLayout";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/dashboard"
