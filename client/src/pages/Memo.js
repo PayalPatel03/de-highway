@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Memo() {
+
+  const [memos, setMemos] = useState([]);
+
+  const fetchMemos = async () => {
+    const res = await axios.get("http://localhost:5000/api/memos");
+    setMemos(res.data);
+  };
+
+  useEffect(() => {
+    fetchMemos();
+  }, []);
+
+  // DELETE FUNCTION
+  const deleteMemo = async (id) => {
+
+    await axios.delete(`http://localhost:5000/api/memos/${id}`);
+
+    alert("Memo Deleted");
+
+    fetchMemos(); // refresh data
+  };
+
   return (
     <div>
 
@@ -17,37 +40,31 @@ function Memo() {
               <th>Fine</th>
               <th>Date</th>
               <th>Location</th>
-              <th>Download</th>
+              <th>Action</th>
             </tr>
           </thead>
 
           <tbody>
 
-            <tr>
-              <td>GJ05AB1234</td>
-              <td>No Seatbelt</td>
-              <td>₹500</td>
-              <td>10-04-2026</td>
-              <td>NH48</td>
-              <td>
-                <button className="btn btn-success btn-sm">
-                  Download PDF
-                </button>
-              </td>
-            </tr>
+            {memos.map((m) => (
+              <tr key={m._id}>
+                <td>{m.vehicleNo}</td>
+                <td>{m.violation}</td>
+                <td>₹{m.fine}</td>
+                <td>{m.date}</td>
+                <td>{m.location}</td>
 
-            <tr>
-              <td>GJ01XY5678</td>
-              <td>Overspeed</td>
-              <td>₹1000</td>
-              <td>10-04-2026</td>
-              <td>Toll Gate</td>
-              <td>
-                <button className="btn btn-success btn-sm">
-                  Download PDF
-                </button>
-              </td>
-            </tr>
+                <td>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => deleteMemo(m._id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+
+              </tr>
+            ))}
 
           </tbody>
 

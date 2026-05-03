@@ -34,14 +34,14 @@ function Sidebar() {
         <li className="mb-3">
           <Link to="/vehicles" className="text-white text-decoration-none">
             <i className="fa fa-car me-2"></i>
-            Vehicles
+              Vehicles
           </Link>
         </li>
 
         <li className="mb-3">
           <Link to="/stolen" className="text-white text-decoration-none">
             <i className="fa fa-exclamation-triangle me-2"></i>
-            Stolen Vehicles
+             Stolen Vehicles
           </Link>
         </li>
 

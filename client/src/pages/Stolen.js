@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Stolen() {
+
+  const [stolen, setStolen] = useState([]);
+
+  const fetchStolen = async () => {
+    const res = await axios.get("http://localhost:5000/api/stolen");
+    setStolen(res.data);
+  };
+
+  useEffect(() => {
+    fetchStolen();
+  }, []);
+
   return (
     <div>
 
@@ -10,33 +23,19 @@ function Stolen() {
 
         <table className="table table-bordered">
 
-          <thead className="table-danger">
+          <thead className="table-dark">
             <tr>
-              <th>Vehicle No</th>
-              <th>Owner</th>
-              <th>Location</th>
-              <th>Time</th>
-              <th>Status</th>
+              <th>Vehicle Number</th>
             </tr>
           </thead>
 
           <tbody>
 
-            <tr>
-              <td>GJ05AB1234</td>
-              <td>Rahul Patel</td>
-              <td>NH48</td>
-              <td>10:45 AM</td>
-              <td className="text-danger">Detected</td>
-            </tr>
-
-            <tr>
-              <td>GJ01XY5678</td>
-              <td>Amit Shah</td>
-              <td>Toll Gate</td>
-              <td>11:20 AM</td>
-              <td className="text-danger">Detected</td>
-            </tr>
+            {stolen.map((s) => (
+              <tr key={s._id}>
+                <td>{s.number}</td>
+              </tr>
+            ))}
 
           </tbody>
 
